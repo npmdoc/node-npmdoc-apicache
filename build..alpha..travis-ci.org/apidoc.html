@@ -1,0 +1,818 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >apicache (v0.8.4)</a>
+</h1>
+<h4>An ultra-simplified API response caching middleware for Express/Node using plain-english durations.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apicache">module apicache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.clear">
+            function <span class="apidocSignatureSpan">apicache.</span>clear
+            <span class="apidocSignatureSpan">(target, isAutomatic)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.clone">
+            function <span class="apidocSignatureSpan">apicache.</span>clone
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.getDuration">
+            function <span class="apidocSignatureSpan">apicache.</span>getDuration
+            <span class="apidocSignatureSpan">(duration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.getIndex">
+            function <span class="apidocSignatureSpan">apicache.</span>getIndex
+            <span class="apidocSignatureSpan">(group)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.memory_cache">
+            function <span class="apidocSignatureSpan">apicache.</span>memory_cache
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.middleware">
+            function <span class="apidocSignatureSpan">apicache.</span>middleware
+            <span class="apidocSignatureSpan">(strDuration, middlewareToggle)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.newInstance">
+            function <span class="apidocSignatureSpan">apicache.</span>newInstance
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.options">
+            function <span class="apidocSignatureSpan">apicache.</span>options
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.resetIndex">
+            function <span class="apidocSignatureSpan">apicache.</span>resetIndex
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">apicache.</span>id</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apicache.</span>memory_cache.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apicache.memory_cache">module apicache.memory_cache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.memory_cache.memory_cache">
+            function <span class="apidocSignatureSpan">apicache.</span>memory_cache
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apicache.memory_cache.prototype">module apicache.memory_cache.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.memory_cache.prototype.add">
+            function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>add
+            <span class="apidocSignatureSpan">(key, value, time, timeoutCallback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.memory_cache.prototype.clear">
+            function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>clear
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.memory_cache.prototype.delete">
+            function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>delete
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.memory_cache.prototype.get">
+            function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>get
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apicache.memory_cache.prototype.getValue">
+            function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>getValue
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apicache" id="apidoc.module.apicache">module apicache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.clear" id="apidoc.element.apicache.clear">
+        function <span class="apidocSignatureSpan">apicache.</span>clear
+        <span class="apidocSignatureSpan">(target, isAutomatic)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clear = function (target, isAutomatic) {
+  var group = index.groups[target]
+  var redis = globalOptions.redisClient
+
+  if (group) {
+    debug(&#x27;clearing group &#x22;&#x27; + target + &#x27;&#x22;&#x27;)
+
+    group.forEach(function(key) {
+      debug(&#x27;clearing cached entry for &#x22;&#x27; + key + &#x27;&#x22;&#x27;)
+
+      if (!globalOptions.redisClient) {
+        memCache.delete(key)
+      } else {
+        redis.del(key)
+      }
+      index.all = index.all.filter(doesntMatch(key))
+    })
+
+    delete index.groups[target]
+  } else if (target) {
+    debug(&#x27;clearing &#x27; + (isAutomatic ? &#x27;expired&#x27; : &#x27;cached&#x27;) + &#x27; entry for &#x22;&#x27; + target + &#x27;&#x22;&#x27;)
+
+    // clear actual cached entry
+    if (!redis) {
+      memCache.delete(target)
+    } else {
+      redis.del(target)
+    }
+
+    // remove from global index
+    index.all = index.all.filter(doesntMatch(target))
+
+    // remove target from each group that it may exist in
+    Object.keys(index.groups).forEach(function(groupName) {
+      index.groups[groupName] = index.groups[groupName].filter(doesntMatch(target))
+
+      // delete group if now empty
+      if (!index.groups[groupName].length) {
+        delete index.groups[groupName]
+      }
+    })
+  } else {
+    debug(&#x27;clearing entire index&#x27;)
+
+    if (!redis) {
+      memCache.clear()
+    } else {
+      // clear redis keys one by one from internal index to prevent clearing non-apicache entries
+      index.all.forEach(function(key) {
+        redis.del(key)
+      })
+    }
+    this.resetIndex()
+  }
+
+  return this.getIndex()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// add route to display cache index
+app.get(&#x27;/api/cache/index&#x27;, (req, res) =&#x3e; {
+  res.json(apicache.getIndex())
+})
+
+// add route to manually clear target/group
+app.get(&#x27;/api/cache/clear/:target?&#x27;, (req, res) =&#x3e; {
+  res.json(apicache.<span class="apidocCodeKeywordSpan">clear</span>(req.params.target))
+})
+
+/*
+
+GET /api/foo/bar --&#x3e; caches entry at /api/foo/bar and adds a group called &#x27;foo&#x27; to index
+GET /api/cache/index --&#x3e; displays index
+GET /api/cache/clear/foo --&#x3e; clears all cached entries for &#x27;foo&#x27; group/collection
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.clone" id="apidoc.element.apicache.clone">
+        function <span class="apidocSignatureSpan">apicache.</span>clone
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function () {
+  return this.newInstance(this.options())
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## API
+
+- `apicache.clear([target])` - clears cache target (key or group), or entire cache if no value passed, returns new index.
+- `apicache.getIndex()` - returns current cache index [of keys]
+- `apicache.middleware([duration], [toggleMiddleware])` - the actual middleware that will be used in your routes.  `duration` is
+ in the following format &#x22;[length] [unit]&#x22;, as in `&#x22;10 minutes&#x22;` or `&#x22;1 day&#x22;`.  A second param is
+a middleware toggle function, accepting request and response params, and must return truthy to enable cache for the request.
+- `apicache.options([options])` - getter/setter for options.  If used as a setter, this function is chainable, allowing you to do
+ things such as... say... return the middleware.
+- `apicache.newInstance([options])` - used to create a new ApiCache instance (by default, simply requiring this library shares a
+ common instance)
+- `apicache.<span class="apidocCodeKeywordSpan">clone</span>()` - used to create a new ApiCache instance with the same options as
+ the current one
+
+#### Available Options (first value is default)
+
+```js
+{
+debug:            false|true,   // if true, enables console output
+defaultDuration:  3600000,      // should be a number (in ms), defaults to 1 hour
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.getDuration" id="apidoc.element.apicache.getDuration">
+        function <span class="apidocSignatureSpan">apicache.</span>getDuration
+        <span class="apidocSignatureSpan">(duration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDuration = function (duration) {
+  if (typeof duration === &#x27;number&#x27;) return duration
+
+  if (typeof duration === &#x27;string&#x27;) {
+    var split = duration.match(/^([\d\.,]+)\s(\w+)$/)
+
+    if (split.length === 3) {
+      var len = parseFloat(split[1])
+      var unit = split[2].replace(/s$/i,&#x27;&#x27;).toLowerCase()
+      if (unit === &#x27;m&#x27;) {
+        unit = &#x27;ms&#x27;
+      }
+
+      return (len || 1) * (t[unit] || 0)
+    }
+  }
+
+  return globalOptions.defaultDuration
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.getIndex" id="apidoc.element.apicache.getIndex">
+        function <span class="apidocSignatureSpan">apicache.</span>getIndex
+        <span class="apidocSignatureSpan">(group)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getIndex = function (group) {
+  if (group) {
+    return index.groups[group]
+  } else {
+    return index
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+app.get(&#x27;/api/:collection/:item?&#x27;, (req, res) =&#x3e; {
+  req.apicacheGroup = req.params.collection
+  res.json({ success: true })
+})
+
+// add route to display cache index
+app.get(&#x27;/api/cache/index&#x27;, (req, res) =&#x3e; {
+  res.json(apicache.<span class="apidocCodeKeywordSpan">getIndex</span>())
+})
+
+// add route to manually clear target/group
+app.get(&#x27;/api/cache/clear/:target?&#x27;, (req, res) =&#x3e; {
+  res.json(apicache.clear(req.params.target))
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.memory_cache" id="apidoc.element.apicache.memory_cache">
+        function <span class="apidocSignatureSpan">apicache.</span>memory_cache
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MemoryCache() {
+	this.cache = {}
+	this.size = 0
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.middleware" id="apidoc.element.apicache.middleware">
+        function <span class="apidocSignatureSpan">apicache.</span>middleware
+        <span class="apidocSignatureSpan">(strDuration, middlewareToggle)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function cache(strDuration, middlewareToggle) {
+  var duration = instance.getDuration(strDuration)
+
+  return function cache(req, res, next) {
+    function bypass() {
+      debug(&#x27;bypass detected, skipping cache.&#x27;)
+      return next()
+    }
+
+    // initial bypass chances
+    if (!globalOptions.enabled) return bypass()
+    if (req.headers[&#x27;x-apicache-bypass&#x27;] || req.headers[&#x27;x-apicache-force-fetch&#x27;]) return bypass()
+    if (typeof middlewareToggle === &#x27;function&#x27;) {
+      if (!middlewareToggle(req, res)) return bypass()
+    } else if (middlewareToggle !== undefined &#x26;&#x26; !middlewareToggle) {
+      return bypass()
+    }
+
+    // embed timer
+    req.apicacheTimer = new Date()
+
+    // In Express 4.x the url is ambigious based on where a router is mounted.  originalUrl will give the full Url
+    var key = req.originalUrl || req.url
+
+    // Remove querystring from key if jsonp option is enabled
+    if (globalOptions.jsonp) {
+      key = url.parse(key).pathname
+    }
+
+    if (globalOptions.appendKey.length &#x3e; 0) {
+      var appendKey = req
+
+      for (var i = 0; i &#x3c; globalOptions.appendKey.length; i++) {
+        appendKey = appendKey[globalOptions.appendKey[i]]
+      }
+      key += &#x27;$$appendKey=&#x27; + appendKey
+    }
+
+    // attempt cache hit
+    var redis = globalOptions.redisClient
+    var cached = !redis ? memCache.getValue(key) : null
+
+    // send if cache hit from memory-cache
+    if (cached) {
+      var elapsed = new Date() - req.apicacheTimer
+      debug(&#x27;sending cached (memory-cache) version of&#x27;, key, logDuration(elapsed))
+
+      return sendCachedResponse(res, cached)
+    }
+
+    // send if cache hit from redis
+    if (redis) {
+      redis.hgetall(key, function (err, obj) {
+        if (!err &#x26;&#x26; obj) {
+          var elapsed = new Date() - req.apicacheTimer
+          debug(&#x27;sending cached (redis) version of&#x27;, key, logDuration(elapsed))
+
+          return sendCachedResponse(res, JSON.parse(obj.response))
+        } else {
+          return makeResponseCacheable(req, res, next, key, duration, strDuration)
+        }
+      })
+    } else {
+      return makeResponseCacheable(req, res, next, key, duration, strDuration)
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Dependencies
+
+None, unless using this with Redis.
+
+## Usage
+
+To use, simply inject the middleware (example: `apicache.<span class="apidocCodeKeywordSpan">middleware</span>(&#x27;5 minutes&#
+x27;, [optionalMiddlewareToggle])`) into your routes.  Everything else is automagic.
+
+#### Cache a route
+```js
+import express from &#x27;express&#x27;
+import apicache from &#x27;apicache&#x27;
+
+let app = express()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.newInstance" id="apidoc.element.apicache.newInstance">
+        function <span class="apidocSignatureSpan">apicache.</span>newInstance
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">newInstance = function (config) {
+  var instance = new ApiCache()
+
+  if (config) {
+    instance.options(config)
+  }
+
+  return instance
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## API
+
+- `apicache.clear([target])` - clears cache target (key or group), or entire cache if no value passed, returns new index.
+- `apicache.getIndex()` - returns current cache index [of keys]
+- `apicache.middleware([duration], [toggleMiddleware])` - the actual middleware that will be used in your routes.  `duration` is
+ in the following format &#x22;[length] [unit]&#x22;, as in `&#x22;10 minutes&#x22;` or `&#x22;1 day&#x22;`.  A second param is
+a middleware toggle function, accepting request and response params, and must return truthy to enable cache for the request.
+- `apicache.options([options])` - getter/setter for options.  If used as a setter, this function is chainable, allowing you to do
+ things such as... say... return the middleware.
+- `apicache.<span class="apidocCodeKeywordSpan">newInstance</span>([options])` - used to create a new ApiCache instance (by default
+, simply requiring this library shares a common instance)
+- `apicache.clone()` - used to create a new ApiCache instance with the same options as the current one
+
+#### Available Options (first value is default)
+
+```js
+{
+debug:            false|true,   // if true, enables console output
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.options" id="apidoc.element.apicache.options">
+        function <span class="apidocSignatureSpan">apicache.</span>options
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">options = function (options) {
+  if (options) {
+    Object.assign(globalOptions, options)
+
+    return this
+  } else {
+    return globalOptions
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+import redis from &#x27;redis&#x27;
+
+let app = express()
+
+// if redisClient option is defined, apicache will use redis client
+// instead of built-in memory store
+let cacheWithRedis = apicache
+                      .<span class="apidocCodeKeywordSpan">options</span>({ redisClient: redis.createClient() })
+                      .middleware
+
+app.get(&#x27;/will-be-cached&#x27;, cacheWithRedis(&#x27;5 minutes&#x27;), (req, res) =&#x3e; {
+  res.json({ success: true })
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.resetIndex" id="apidoc.element.apicache.resetIndex">
+        function <span class="apidocSignatureSpan">apicache.</span>resetIndex
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetIndex = function () {
+  index = {
+    all: [],
+    groups: {}
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apicache.memory_cache" id="apidoc.module.apicache.memory_cache">module apicache.memory_cache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.memory_cache.memory_cache" id="apidoc.element.apicache.memory_cache.memory_cache">
+        function <span class="apidocSignatureSpan">apicache.</span>memory_cache
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MemoryCache() {
+	this.cache = {}
+	this.size = 0
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apicache.memory_cache.prototype" id="apidoc.module.apicache.memory_cache.prototype">module apicache.memory_cache.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.memory_cache.prototype.add" id="apidoc.element.apicache.memory_cache.prototype.add">
+        function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>add
+        <span class="apidocSignatureSpan">(key, value, time, timeoutCallback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (key, value, time, timeoutCallback) {
+	var old = this.cache[key]
+	var instance = this
+
+	if (old) {
+		clearTimeout(old.timeout)
+	}
+
+	var entry = {
+		value: value,
+		expire: time + Date.now(),
+		timeout: setTimeout(function() {
+			instance.delete(key)
+			return timeoutCallback &#x26;&#x26; typeof timeoutCallback === &#x27;function&#x27; &#x26;&#x26; timeoutCallback(value, key)
+		}, time)
+	}
+
+	this.cache[key] = entry
+	this.size = Object.keys(this.cache).length
+
+	return entry
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.memory_cache.prototype.clear" id="apidoc.element.apicache.memory_cache.prototype.clear">
+        function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>clear
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clear = function () {
+	Object.keys(this.cache).forEach(function(key) {
+		this.delete(key)
+	}, this)
+
+	return true
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// add route to display cache index
+app.get(&#x27;/api/cache/index&#x27;, (req, res) =&#x3e; {
+  res.json(apicache.getIndex())
+})
+
+// add route to manually clear target/group
+app.get(&#x27;/api/cache/clear/:target?&#x27;, (req, res) =&#x3e; {
+  res.json(apicache.<span class="apidocCodeKeywordSpan">clear</span>(req.params.target))
+})
+
+/*
+
+GET /api/foo/bar --&#x3e; caches entry at /api/foo/bar and adds a group called &#x27;foo&#x27; to index
+GET /api/cache/index --&#x3e; displays index
+GET /api/cache/clear/foo --&#x3e; clears all cached entries for &#x27;foo&#x27; group/collection
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.memory_cache.prototype.delete" id="apidoc.element.apicache.memory_cache.prototype.delete">
+        function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>delete
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (key) {
+	var entry = this.cache[key]
+
+	if (entry) {
+		clearTimeout(entry.timeout)
+	}
+
+	delete this.cache[key]
+
+	this.size = Object.keys(this.cache).length
+
+	return null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		clearTimeout(old.timeout)
+	}
+
+	var entry = {
+		value: value,
+		expire: time + Date.now(),
+		timeout: setTimeout(function() {
+			instance.<span class="apidocCodeKeywordSpan">delete</span>(key)
+			return timeoutCallback &#x26;&#x26; typeof timeoutCallback === &#x27;function&#x27; &#x26;&#x26; timeoutCallback(value, key)
+		}, time)
+	}
+
+	this.cache[key] = entry
+	this.size = Object.keys(this.cache).length
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.memory_cache.prototype.get" id="apidoc.element.apicache.memory_cache.prototype.get">
+        function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>get
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (key) {
+	var entry = this.cache[key]
+
+	if (entry &#x26;&#x26; entry.expire &#x3c; Date.now()) {
+		return this.delete(key)
+	}
+
+	return entry
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+import express from &#x27;express&#x27;
+import apicache from &#x27;apicache&#x27;
+
+let app = express()
+let cache = apicache.middleware
+
+app.<span class="apidocCodeKeywordSpan">get</span>(&#x27;/api/collection/:id?&#x27;, cache(&#x27;5 minutes&#x27;), (req, res) =&#
+x3e; {
+  // do some work... this will only occur once per 5 minutes
+  res.json({ foo: &#x27;bar&#x27; })
+})
+```
+
+#### Cache all routes
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apicache.memory_cache.prototype.getValue" id="apidoc.element.apicache.memory_cache.prototype.getValue">
+        function <span class="apidocSignatureSpan">apicache.memory_cache.prototype.</span>getValue
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getValue = function (key) {
+	var entry = this.get(key)
+
+	return entry &#x26;&#x26; entry.value
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
